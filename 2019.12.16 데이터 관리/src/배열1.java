@@ -71,7 +71,6 @@
  *
  */
 // 정수를 3개 입력 => 입력 받은 데이터를 출력
-
 import java.util.Scanner;
 public class 배열1 {
 

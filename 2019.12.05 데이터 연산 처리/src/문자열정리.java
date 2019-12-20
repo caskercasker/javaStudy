@@ -18,7 +18,7 @@
  *
  *  String 按眉 林家绰 4byte
  *
-   ex> 部部付OIJOIJFODIJFOIDJFOIDJFOIDJ
+   ex>
  */
 public class 巩磊凯沥府 {
 	public static void main(String[] args) {

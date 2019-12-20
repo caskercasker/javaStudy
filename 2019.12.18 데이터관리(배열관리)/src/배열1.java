@@ -49,6 +49,7 @@
  *  3) 마지막
  *  4) 출력
  */
+import java.util.Calendar;
 import java.util.Scanner;
 public class 배열1 {
 
@@ -68,20 +69,31 @@ public class 배열1 {
 
 		System.out.println("월 입력 : ");
 		int month = scan.nextInt();
+		System.out.println("일 입력: ");
+		int day = scan.nextInt();
+
 
 		System.out.println(year+"년도"+month+"월");
 		System.out.println("\n");
-		/*
+		/*20
 		 * System.out.print("일\t"); System.out.print("월\t"); System.out.print("화\t");
 		 * System.out.print("수\t"); System.out.print("목\t"); System.out.print("금\t");
 		 * System.out.print("토\t");
 		 */
 		char[] strWeek= {'일','월','화','수','목','금','토'};
+		Calendar cal = Calendar.getInstance();
+		int y = cal.get(cal.YEAR);
+		int m = cal.get(cal.MONTH)+1;
+		int d = cal.get(cal.DATE);
+		int w = cal.get(cal.DAY_OF_WEEK);
+		System.out.println("========"+y+"년도"+m+"월"+d+"일"+strWeek[w-1]+"요일=======");
 		//System.out.print("\t");
 		for(int i=0; i<7; i++) {
 			System.out.print(strWeek[i]+"\t");
 		}
 		System.out.println();
+
+
 		//1일자의 요일을 구한다.
 		//전년도 12/31 => 총합
 		int total = (year-1)*365 + (year-1)/4 - (year-1)/100 + (year-1)/400;
@@ -114,6 +126,12 @@ public class 배열1 {
 				System.out.println();
 			}
 		}
+
+
+		System.out.println("요일은 "+strWeek[((total+day)%7-1)]);
+
+		System.out.println();
+		System.out.println(year+"년도"+month+"월"+day+"일은"+strWeek[((total+day)%7-1)]+"요일 입니다.");
 	}
 
 }

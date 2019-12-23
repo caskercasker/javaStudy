@@ -5,6 +5,8 @@
 import java.util.Scanner;
 public class 문자열클래스2 {
 	static boolean isLogin(String id, String pwd) {
+		//Integer.M
+		//Byte.m
 		boolean bCheck = false;
 		final String ID = "admin";
 		final String PWD = "1234";

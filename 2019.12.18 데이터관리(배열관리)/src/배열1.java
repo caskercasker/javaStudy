@@ -112,7 +112,10 @@ public class ¹è¿­1 {
 
 		int week=total%7;
 		//int lastDay=31;
+		System.out.println("¤·¤©¤···¤©");
+		System.out.println(week);
 
+		//last day ¿Í  week ¸¸ ¹Þ¾Æ¿À¸é µÊ.
 		for(int i=1;i<=lastday[month-1];i++) {
 			if(i==1) {
 				for(int j=0;j<week;j++) {

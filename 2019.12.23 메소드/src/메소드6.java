@@ -1,11 +1,11 @@
 import java.util.Scanner;
 public class 메소드6 {
 	// 난수발생
-	static int[] getRand() {
-		int[] com = new int[3];
+	static int[] getRand(int no) {
+		int[] com = new int[no];
 		int su = 0;
 		boolean bCheck = false;
-		for(int i=0; i<3; i++) {
+		for(int i=0; i<no; i++) {
 			bCheck=true;
 			while(bCheck) {
 				su=(int)(Math.random()*9)+1;
@@ -78,7 +78,7 @@ public class 메소드6 {
 		return bCheck;
 	}
 	static void process() {
-		int[] com = getRand();
+		int[] com = getRand(3);
 		Scanner scan = new Scanner(System.in);
 
 		while(true) {
@@ -99,8 +99,14 @@ public class 메소드6 {
 		}
 	}
 
+	static String start() {
+		return "게임을 시작합니다!!";
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//System.out.println(start());
+		String s = start();
+		System.out.println(s);
 		process();
 	}
 

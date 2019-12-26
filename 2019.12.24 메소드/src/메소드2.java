@@ -46,7 +46,7 @@ public class ¸Þ¼Òµå2 {
 		System.out.println(a);
 		System.out.println(d);
 
-
+		System.out.println();
 		System.out.println(a);
 		change(a);
 		System.out.println(a);

@@ -100,27 +100,34 @@ public class MainClass {
 		MovieVO m1 = new MovieVO();
 		MovieVO m2 = new MovieVO();
 		MovieVO m3 = new MovieVO();
-		m3.title = "백두산(2019)";
-		// . (메모리 주소 접근 연산자)
-		m2.title = "천문: 하늘에 는다;";
-		m1.title = "캣츠 (2019)";
 
-		System.out.println(m1.title);
-		System.out.println(m2.title);
-		System.out.println(m3.title);
+		System.out.println(m2);
+		System.out.println(m3);
+		System.out.println(m1);
 
-		System.out.println(m2);	//MovieVO@15db9742
-		System.out.println("23232");
-		System.out.println(m1);	//MovieVO@6d06d69c
-		System.out.println(m3); //MovieVO@7852e922
 
-		System.out.println("저장된 영화 제목");
 
-		MovieVO[] vo = {m1,m2,m3};
-		//MovieVO[] vo = new MovieVO[3];
-		for(int i=0; i<vo.length; i++) {
-			System.out.println(vo[i].title);
-		}
+//		m3.title = "백두산(2019)";
+//		// . (메모리 주소 접근 연산자)
+//		m2.title = "천문: 하늘에 는다;";
+//		m1.title = "캣츠 (2019)";
+//
+//		System.out.println(m1.title);
+//		System.out.println(m2.title);
+//		System.out.println(m3.title);
+//
+//		System.out.println(m2);	//MovieVO@15db9742
+//		System.out.println("23232");
+//		System.out.println(m1);	//MovieVO@6d06d69c
+//		System.out.println(m3); //MovieVO@7852e922
+//
+//		System.out.println("저장된 영화 제목");
+//
+//		MovieVO[] vo = {m1,m2,m3};
+//		//MovieVO[] vo = new MovieVO[3];
+//		for(int i=0; i<vo.length; i++) {
+//			System.out.println(vo[i].title);
+//		}
 
 	}
 

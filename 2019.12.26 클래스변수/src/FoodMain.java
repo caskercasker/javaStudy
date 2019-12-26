@@ -7,6 +7,17 @@ class Category{
 }
 class Food{
 	int cateno;
+	String[] poster = new String[4];
+	String title;
+	double score;
+	String addr;
+	String tel;
+	String type;
+	String price;
+	String packing;
+	String time;
+	String menu;
+
 }
 public class FoodMain {
 

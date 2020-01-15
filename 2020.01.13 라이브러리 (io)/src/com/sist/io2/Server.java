@@ -34,6 +34,8 @@ public class Server implements Runnable{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//접속은 Main 이 받음....
+		Server server = new Server();
+		new Thread(server).start();
 	}
 
 	@Override
@@ -47,7 +49,9 @@ public class Server implements Runnable{
 				//접속시에 정보 ==> Socket(ip,port) 값이 합쳐서 들어감
 				Socket s = ss.accept(); //접속이 되면 호출되는 메소드
 				//Socket ==>  클라이언트 (유저)
+				System.out.println("클라이언트 접속 완료 !!=>"+s.getInetAddress().getHostAddress());
 				Client client = new Client(s);
+				client.start(); //Client=> run() 실행
 				waitVC.add(client);
 				//접속한 사람의 정보를 저장
 			} catch (Exception e) {
@@ -67,10 +71,23 @@ public class Server implements Runnable{
 				out = s.getOutputStream();// 클라리언트로 값을 전송할 목적으로
 				in = new BufferedReader(new InputStreamReader(s.getInputStream()));
 
-			}catch(Exception e) {
-
+			}catch(Exception e) {}
+		}
+		@Override
+		public void run() {
+			while(true) {
+				try {
+					//클라이언트 가 전송한 메시지 읽기
+					String msg = in.readLine();
+					System.out.println("Client=>"+msg);
+					//접속한 전체 클라이언트에 값을 전송
+					for(Client c:waitVC) {
+						c.out.write((msg+"\n").getBytes());
+					}
+				}catch(Exception ex) {}
 			}
 		}
 
 	}
 }
+

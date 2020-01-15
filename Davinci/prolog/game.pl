@@ -5,6 +5,9 @@
 :- ensure_loaded('code.pl').
 
 :- dynamic stones/2.
+¾Æ·±¤±¤·
+¤·1312
+¤·¶ótxt.
 
 make_stones_real(Num) :- assert(stones(Num, [])).
 

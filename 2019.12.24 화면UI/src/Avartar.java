@@ -3,7 +3,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.JPanel;
-
+//프로젝트 시작
 public class Avartar extends JPanel{
 	Image back;
 	Avartar(){

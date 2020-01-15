@@ -11,16 +11,18 @@ public class MainForm extends JFrame implements ActionListener{//ActionLister ¿Œ
 	GameRoom gr = new GameRoom();
 	Avartar ava = new Avartar();
 	CardLayout card = new CardLayout();
-
+	MainGameRoom mgr = new MainGameRoom();
 
 
 	MainForm()	{
+		//add("WR",wr);
 		setLayout(card);
+
+		add("MGR",mgr);
+		add("WR",wr);
 		add("LOGIN",login);
 		add("AVARTAR",ava);
-		add("WR",wr);
 		add("GAME",gr);
-		//add("LOGIN",login);
 
 
 

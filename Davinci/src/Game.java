@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Vector;
 
 class Game {
 
@@ -27,7 +27,7 @@ class Game {
 		for (int i = 0; i <= 11; i++) {
 			Tile nwtileB = new Tile(true, false, i);
 			Tile nwtileW = new Tile(false, false, i);
-			
+
 			d_pile.add(nwtileB);
 			d_pile.add(nwtileW);
 		}
@@ -35,104 +35,104 @@ class Game {
 
 	public Tile giveTile(Player tmp) {
 		// get tile from pile on table
-		double size = (double) d_pile.size();
+		double size = d_pile.size();
 		double random = Math.random();
 		int number = (int) Math.round(random * (size - 1));
 
 		Tile tile = d_pile.get(number);
-		
+
 		tmp.setAside(tile);
 		d_pile.remove(number);
-		
+
 		return tile;
 	}
-	
+
 	public Tile giveTile(Player tmp, boolean black) {
 		// get tile from pile on table (of a specific color)
-		double size = (double) d_pile.size();
+		double size = d_pile.size();
 		double random = Math.random();
 		int number = (int) Math.round(random * (size - 1));
 		Tile temp = d_pile.get(number);
 		if (temp.getBlack() == black){
 			tmp.setAside(temp);
 			d_pile.remove(number);
-			
+
 			return temp;
 		}
 		else {
 			return giveTile(tmp, black);
 		}
 	}
-	
+
 	public void turnDone(Player plr, boolean ok)
 	{
 		plr.turnDone(ok);
 	}
-	
+
 	public Vector<Player> getPlayers() {
 		return d_players;
 	}
-	
+
 	public Player getActivePlayer() {
 		return d_activePlayer;
 	}
-	
+
 	public void setActivePlayer(Player plr) {
 		d_activePlayer = plr;
 	}
-	
+
 	public void nextTurn() {
 		if (d_activePlayer == null)
 			d_activePlayer = d_players.firstElement();
 		else {
 			int index = d_players.indexOf(d_activePlayer);
-			
+
 			if (index == d_players.size() - 1)
 				d_activePlayer = d_players.firstElement();
 			else
 				d_activePlayer = d_players.elementAt(index + 1);
 		}
 	}
-	
+
 	public Vector<Player> getOtherPlayers() {
 		Vector<Player> result = new Vector<Player>();
-		
+
 		for (int i = d_players.indexOf(d_activePlayer) + 1; i < d_players.size(); i++)
 			result.add(d_players.get(i));
-		
+
 		for (int i = 0; i < d_players.indexOf(d_activePlayer); i++)
 			result.add(d_players.get(i));
-		
+
 		return result;
 	}
-	
-	public int getNumTiles(boolean black)
+
+	public int getNumTiles(boolean black) //!!!!
 	{
 		int result = 0;
-		
+
 		for (Tile tile : d_pile)
 		{
 			if (tile.getBlack() == black)
 				result++;
 		}
-		
+
 		return result;
 	}
-	
+
 	public int getNumTiles()
 	{
 		return d_pile.size();
 	}
-	
+
 	private boolean checkPlayer(Player plr)
 	{
 		for (Tile tile : plr.getTiles())
 			if (!tile.getOpen())
 				return false;
-		
+
 		return true;
 	}
-	
+
 	public boolean checkDone()
 	{
 		for (Player plr : d_players)
@@ -140,11 +140,11 @@ class Game {
 			if (checkPlayer(plr))
 				return true;
 		}
-		
+
 		return false;
 	}
-	
-	
+
+
 	/*
 	public void printPile(GUI g) {
 		String pl = "";
@@ -154,6 +154,6 @@ class Game {
 		g.writeText(pl);
 	}
 	*/
-	
-	
+
+
 }

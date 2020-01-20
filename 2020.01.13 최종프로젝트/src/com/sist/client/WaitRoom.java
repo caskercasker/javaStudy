@@ -20,7 +20,15 @@ public class WaitRoom extends JPanel {
 		String[] col1 = {"방이름","공개/비공개","인원",};
 		String[][] row1 = new String[0][3];
 
-		model1 = new DefaultTableModel(row1, col1);
+		model1 = new DefaultTableModel(row1, col1) { //상속없이 오버라이딩 익명의 클래스
+
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				// TODO Auto-generated method stub
+				return false; //편집이 안됨
+			}
+
+		};
 		table1 = new JTable(model1);
 
 		JScrollPane js1 = new JScrollPane(table1);
@@ -73,6 +81,9 @@ public class WaitRoom extends JPanel {
 		add(js3);
 		add(js1);
 		add(js2);
+
+//		String[] data = {"빨리와","공개","1/6"};
+//		model1.addRow(data);
 	}
 }
 

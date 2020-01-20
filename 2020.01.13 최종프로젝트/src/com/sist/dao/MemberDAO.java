@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 public class MemberDAO {
 	private Connection conn;//오라클 연결 => Socket
 	private PreparedStatement ps; // BufferedReader, OutputStream
-	private final String URL="jdbc:oracle:thin:@211.238.142.199:1521:XE";
+	private final String URL="jdbc:oracle:thin:@localhost:1521:XE";
 	// 오라클 연결 주소
 	// 1. 드라이버 등록 => 한번수행 => 생성자
 	public MemberDAO() {
@@ -63,12 +63,13 @@ public class MemberDAO {
 				String mpwd = rs.getString(2);
 				String name = rs.getString(3);
 				String sex = rs.getString(4);
+				int avatar = rs.getInt(5);
 				System.out.println(name+"   "+sex);
 				rs.close();
 
 				if(mpwd.equals(pwd)) {
 					//로그인
-					result=mid+"|"+name+"|"+sex;
+					result=mid+"|"+name+"|"+sex+"|"+avatar;
 				}else {
 					//비밀번호가 틀리다
 					result ="NOPWD";

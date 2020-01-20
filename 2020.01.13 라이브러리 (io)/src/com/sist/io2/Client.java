@@ -1,4 +1,6 @@
 package com.sist.io2;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -26,6 +28,10 @@ public class Client extends JFrame implements ActionListener,Runnable{
 		ta = new JTextArea();
 		JScrollPane js = new JScrollPane(ta);
 		ta.setEnabled(false);
+
+		 Font font = new Font("Verdana", Font.BOLD, 12);
+	     ta.setFont(font);
+	     ta.setForeground(Color.GREEN);
 
 		tf = new JTextField(20);
 		b = new JButton("Á¢¼Ó");
@@ -70,6 +76,9 @@ public class Client extends JFrame implements ActionListener,Runnable{
 		}
 		else if(e.getSource()==tf) {
 			String msg=tf.getText();
+			 Font font = new Font("Verdana", Font.BOLD, 12);
+		     tf.setFont(font);
+		     tf.setForeground(Color.GREEN);
 			if(msg.length()<1)
 				return;
 			try {
